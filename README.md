@@ -15,3 +15,6 @@ The gimmick with this mod is that Jokers will be kept at parity with the Weekly 
 
 ## Art Wanted
 Right now there's pretty much no art assets for this mod as I am not visually/art inclined. If you want to contribute art feel free and I'll make sure you're credited. 
+
+## Bugs
+This is the very first iteration of the mod, so the're bound to be bugs. Please let me know about them and I'll have them solved as soon as I can. 
