@@ -1,0 +1,1 @@
+return {["allow_finished"]=true,}
