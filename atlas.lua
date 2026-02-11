@@ -13,6 +13,20 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "ShonenConsumables",
+    path = "ShonenConsumables.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
+    key = "ShonenEnhancements",
+    path = "ShonenEnhancements.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
     key = "ShonenTag",
     path = "ShonenTag.png",
     px = 34,

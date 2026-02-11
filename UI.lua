@@ -3,6 +3,10 @@ function shonen_joke.config_tab()
     callback = function(_set_toggle)
         NFS.write(shonen_joke.mod_dir .. "/config.lua", STR_PACK(shonen_joke.config))
     end}),
+    create_toggle({label = localize("shon_rare_rarity"), ref_table = shonen_joke.config, ref_value = "shon_rare_rarity",
+    callback = function(_set_toggle)
+        NFS.write(shonen_joke.mod_dir .. "/config.lua", STR_PACK(shonen_joke.config))
+    end}),
     }
 
     return {

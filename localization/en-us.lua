@@ -3,7 +3,16 @@ return {
         Back={},
         Blind={},
         Edition={},
-        Enhanced={},
+        Enhanced={
+            m_shon_alien = {
+                name = "Alien Card",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult",
+                    "randomizes rank and",
+                    "suit when scored"
+                },
+            },
+        },
         Joker={
             j_shon_luffy = {
                 name = 'Luffy',
@@ -175,6 +184,16 @@ return {
                     "{C:money}$#1#{} for each destroyed",
                 }
             },
+            j_shon_ouga = {
+                name = 'Ouga',
+                text = {
+                    "If discarded hand is exactly",
+                    "{C:attention}1 non-Alien face{} card and {C:attention}1",
+                    "{C:attention}Alien{} card, destroy the {C:attention}Alien{}",
+                    "card and gain {X:mult,C:white} X#2# {} Mult",
+                    "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult){}",
+                }
+            },
         },
         Other={
             p_shon_jumppack_normal_1 = {
@@ -185,7 +204,15 @@ return {
                 },
             },
         },
-        Planet={},
+        Planet={
+            c_shon_invasion = {
+				name = "Invasion!",
+				text = {
+                    "Adds {C:attention}#1#{} random",
+                    "{C:attention}Alien{} cards to deck"
+				},
+			},
+        },
         Spectral={},
         Stake={},
         Tag={
@@ -210,8 +237,10 @@ return {
             k_shon_ninja = "Ninja!",
             k_shon_active = "Active!",
             k_shon_inactive = "Inactive",
+            k_shon_event = "Event",
 
-            shon_finished = "Allow Finished Series?"
+            shon_finished = "Allow Finished Series? (Requires restart)",
+            shon_rare_rarity = "Shonen Jokers have Rare rarity? (Requires restart)"
         },
         high_scores={},
         labels={

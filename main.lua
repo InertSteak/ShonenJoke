@@ -11,6 +11,8 @@ assert(SMODS.load_file("atlas.lua"))()
 assert(SMODS.load_file("misc.lua"))()
 assert(SMODS.load_file("functions.lua"))()
 assert(SMODS.load_file("UI.lua"))()
+assert(SMODS.load_file("consumable.lua"))()
+assert(SMODS.load_file("enhance.lua"))()
 
 --function to load directories
 local load_directory = function(dirname, map_item)

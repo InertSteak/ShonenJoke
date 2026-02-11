@@ -781,13 +781,58 @@ local haiji = {
   end,
 }
 
+local ouga = {
+  key = 'ouga',
+  pos = {x = 0, y = 2},
+  config = {extra = {Xmult = 1, Xmult_mod = 0.4}},
+  loc_vars = function(self, info_queue, center)
+    info_queue[#info_queue+1] = G.P_CENTERS.m_shon_alien
+	return {vars = {center.ability.extra.Xmult, center.ability.extra.Xmult_mod}}
+  end,
+  rarity = "shon_shonen",
+  cost = 6,
+  atlas = "ShonenJokers",
+  blueprint_compat = false,
+  calculate = function(self, card, context)
+    if context.discard and #context.full_hand == 2 and not context.blueprint then
+        local face = nil
+        local alien = nil
+        for i = 1, #context.full_hand do
+            if context.full_hand[i]:is_face() and not SMODS.has_enhancement(context.full_hand[i], 'm_shon_alien') then
+                face = context.full_hand[i]
+            elseif SMODS.has_enhancement(context.full_hand[i], 'm_shon_alien') then
+                alien = context.full_hand[i]
+            end
+        end
+        if face and alien and context.other_card == alien then
+            SMODS.scale_card(card, {
+            ref_value = 'Xmult',
+            scalar_value = 'Xmult_mod',
+            })
+
+            return {
+                remove = true,
+                delay = 0.45
+            }
+        end
+    end
+
+    if context.joker_main then
+        return {
+            xmult = card.ability.extra.Xmult
+        }
+    end
+  end,
+}
+
 local full_joker_list = {luffy, sakamoto, roboco, gakuro, gonron, yodaka, kiyoshi, ichi, tokiyuki, chinatsu_taiki, maru, nico, asuka_demonlord, akane, mimei_kurage,
-            osoegawa, chihiro, tenichi, kinato, haiji}
+            osoegawa, chihiro, tenichi, kinato, haiji, ouga}
 
 local current_joker_list = {}
 
 for i = 1, #full_joker_list do
     if shonen_joke.config.allow_finished or not full_joker_list[i].finished then
+        if shonen_joke.config.shon_rare_rarity then full_joker_list[i].rarity = 3 end
         current_joker_list[#current_joker_list+1] = full_joker_list[i]
     end
 end
