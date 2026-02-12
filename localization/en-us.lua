@@ -238,6 +238,7 @@ return {
             k_shon_active = "Active!",
             k_shon_inactive = "Inactive",
             k_shon_event = "Event",
+            k_shon_jump_pack = "Jump Pack",
 
             shon_finished = "Allow Finished Series? (Requires restart)",
             shon_rare_rarity = "Shonen Jokers have Rare rarity? (Requires restart)"

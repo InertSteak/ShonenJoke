@@ -832,7 +832,10 @@ local current_joker_list = {}
 
 for i = 1, #full_joker_list do
     if shonen_joke.config.allow_finished or not full_joker_list[i].finished then
-        if shonen_joke.config.shon_rare_rarity then full_joker_list[i].rarity = 3 end
+        if shonen_joke.config.shon_rare_rarity then 
+            full_joker_list[i].rarity = 3
+        end
+        full_joker_list[i].unlocked = true
         current_joker_list[#current_joker_list+1] = full_joker_list[i]
     end
 end

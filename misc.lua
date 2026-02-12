@@ -26,8 +26,20 @@ SMODS.Booster{
     weight = .15,
     unlocked = true,
     discovered = true,
-	create_card = function(self, card)
-     return {set = "Joker", area = G.pack_cards, skip_materialize = true, key_append = "randshonen", rarity = "shon_shonen"}
+	create_card = function(self, card) 
+		if shonen_joke.config.shon_rare_rarity then
+			local pool = get_current_pool("Joker", 3)
+			local shonen_jokers = {}
+			for i = 1, #pool do
+				if string.sub(pool[i], 1, 7) == 'j_shon_' then
+					shonen_jokers[#shonen_jokers+1] = pool[i]
+				end
+			end
+			local shonen_joker = pseudorandom_element(shonen_jokers, pseudoseed('shonen'..G.GAME.round_resets.ante))
+			return {set = "Joker", area = G.pack_cards, skip_materialize = true, key = shonen_joker or 'j_shon_roboco'}
+		else
+			return {set = "Joker", area = G.pack_cards, skip_materialize = true, rarity = 'shon_shonen'}
+		end
     end,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { self.config.choose, card.ability.extra} }
