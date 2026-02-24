@@ -336,6 +336,7 @@ local tokiyuki = {
   atlas = "ShonenJokers",
   blueprint_compat = false,
   eternal_compat = false,
+  finished = true,
   calculate = function(self, card, context)
     if context.selling_self and not context.blueprint then
         for i = 1, #G.GAME.tags do
