@@ -184,6 +184,7 @@ local gonron = {
   atlas = "ShonenJokers",
   blueprint_compat = true,
   perishable_compat = false,
+  finished = true,
   calculate = function(self, card, context)
     if context.before and #context.scoring_hand == 1 and context.scoring_hand[1]:is_suit('Hearts') and not context.blueprint then
         card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_mod
@@ -403,6 +404,7 @@ local maru = {
   atlas = "ShonenJokers",
   blueprint_compat = false,
   eternal_compat = false,
+  finished = true,
   calculate = function(self, card, context)
     if context.reroll_shop and not context.blueprint then
         local destructable_jokers = {}
@@ -487,6 +489,7 @@ local asuka_demonlord = {
   cost = 6,
   atlas = "ShonenJokers",
   blueprint_compat = true,
+  finished = true,
   calculate = function(self, card, context)
     if context.selling_card then
         if context.card and context.card.config and (context.card.config.center_key == "c_devil" or context.card.config.center_key == "c_justice") then
@@ -609,6 +612,7 @@ local osoegawa = {
   cost = 10,
   atlas = "ShonenJokers",
   blueprint_compat = true,
+  finished = true,
   calculate = function(self, card, context)
     if context.ending_shop and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
